@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background: black;
+            height: 6000px;
+            font-family: 'nanumsquare';
+        }
+        div{
+            margin-top: 1000px;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transform: rotate(-360deg);
+            transition: all 0.5s;
+        }
+    </style>
+
+    <div>오늘은</div>
+    <div>기숙사 들어가는날</div>
+    <div>벌써 휴가가 끝나다니...</div>
+    <div>ㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜ</div>
+    <div><img src="fighting.png"></div>
+
+    <script>
+        let observer = new IntersectionObserver((e)=>{
+            e.forEach((박스)=>{
+                if(박스.isIntersecting){
+                    박스.target.style.opacity =1;
+                    박스.target.style.transform = 'rotate(0deg)';
+                }
+            })
+        })
+
+        let div = document.querySelectorAll('div')
+        //html 요소 감지
+        observer.observe(div[0])
+        observer.observe(div[1])
+        observer.observe(div[2])
+        observer.observe(div[3])
+        observer.observe(div[4])
+    </script>
+</body>
+</html>
